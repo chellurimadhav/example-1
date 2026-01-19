@@ -30,7 +30,7 @@ const Hero = () => {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 px-4"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28 px-4 pb-8 sm:pb-12 md:pb-16"
     >
       {/* Parallax Background */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
@@ -65,14 +65,14 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <motion.div style={{ opacity }} className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-5xl ml-0 sm:ml-4 md:ml-8 lg:ml-12">
+      <motion.div style={{ opacity }} className="container mx-auto px-4 sm:px-6 relative z-10 w-full">
+        <div className="max-w-5xl ml-0 sm:ml-4 md:ml-8 lg:ml-12 w-full">
           {/* Animated Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 sm:gap-3 glass rounded-full px-4 sm:px-5 py-2 sm:py-2.5 mb-6 sm:mb-8 shadow-soft backdrop-blur-md"
+            className="inline-flex items-center gap-2 sm:gap-3 glass rounded-full px-4 sm:px-5 py-2 sm:py-2.5 mb-5 sm:mb-6 md:mb-8 shadow-soft backdrop-blur-md flex-wrap"
           >
             <span className="flex items-center gap-0.5 sm:gap-1">
               {[...Array(5)].map((_, i) => (
@@ -99,7 +99,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-5 sm:mb-6 md:mb-7"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-4 sm:mb-5 md:mb-6"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -132,7 +132,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-6 sm:mb-7 md:mb-9 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-5 sm:mb-6 md:mb-7 leading-relaxed"
           >
             Your trusted destination for high-quality{" "}
             <strong className="text-foreground">tiles, sanitary ware, waterproofing solutions</strong>, 
@@ -145,7 +145,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-7 md:mb-9"
+            className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5 sm:mb-6 md:mb-7"
           >
             {quickFeatures.map((feature, index) => (
               <motion.div
@@ -168,7 +168,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-14"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 md:mb-10"
           >
             <Button 
               size="lg" 
@@ -204,7 +204,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="grid grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 max-w-lg mx-auto"
+            className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6 max-w-lg"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -240,7 +240,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:block"
+        className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-10 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
