@@ -12,12 +12,12 @@ const Gallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const images = [
-    { src: heroSandstone, alt: "Premium Sandstone Texture", category: "Texture" },
-    { src: sandstoneTiles, alt: "Sandstone Tiles", category: "Tiles" },
-    { src: redSandstone, alt: "Red Sandstone", category: "Red Stone" },
-    { src: sandstoneSlabs, alt: "Sandstone Slabs", category: "Slabs" },
-    { src: heroSandstone, alt: "Natural Stone Pattern", category: "Pattern" },
-    { src: sandstoneTiles, alt: "Floor Tiles", category: "Tiles" },
+    { src: heroSandstone, alt: "Premium Tiles Collection", category: "Tiles" },
+    { src: sandstoneTiles, alt: "Sanitary Ware", category: "Sanitary" },
+    { src: redSandstone, alt: "Waterproofing Solutions", category: "Waterproofing" },
+    { src: sandstoneSlabs, alt: "Wash Basin Sinks", category: "Sinks" },
+    { src: heroSandstone, alt: "Modern Cabinets", category: "Cabinets" },
+    { src: sandstoneTiles, alt: "Construction Products", category: "Products" },
   ];
 
   const nextImage = () => {
@@ -33,8 +33,8 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-24 lg:py-32 bg-secondary/30" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section id="gallery" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-secondary/30" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,10 +46,10 @@ const Gallery = () => {
             Gallery
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
-            Our <span className="text-gradient">Stone Collection</span>
+            Our <span className="text-gradient">Product Gallery</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Explore the natural beauty and variety of our premium sandstone products.
+            Explore the variety and quality of our tiles, sanitary ware, and construction products.
           </p>
         </motion.div>
 
@@ -73,6 +73,8 @@ const Gallery = () => {
                 className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
                   index === 0 ? "h-80 md:h-full" : "h-48 md:h-64"
                 }`}
+                loading={index < 3 ? "eager" : "lazy"}
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">

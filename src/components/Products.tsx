@@ -19,40 +19,40 @@ const Products = () => {
 
   const products = [
     {
-      name: "Sandstone Tiles",
+      name: "Tiles & Sanitary Ware",
       description:
-        "Premium quality sandstone tiles perfect for flooring, wall cladding, and outdoor paving. Available in various sizes and finishes.",
+        "Premium quality tiles and sanitary ware perfect for residential, commercial, and infrastructure projects. Wide range of designs and finishes available.",
       image: sandstoneTiles,
-      features: ["Natural finish", "Multiple sizes", "Weather resistant", "Anti-slip"],
-      sizes: ["30x30 cm", "40x40 cm", "60x60 cm", "Custom"],
-      applications: ["Flooring", "Wall Cladding", "Outdoor Paving", "Pool Surrounds"],
-      price: "Starting ₹45/sq.ft",
+      features: ["Premium quality", "Multiple designs", "Durable", "Modern finishes"],
+      sizes: ["Various sizes available", "Custom options"],
+      applications: ["Residential", "Commercial", "Infrastructure", "Renovation"],
+      price: "Contact for pricing",
     },
     {
-      name: "Red Sandstone",
+      name: "Waterproofing Solutions",
       description:
-        "Rich terracotta-colored red sandstone ideal for decorative facades, feature walls, and traditional architecture projects.",
+        "Advanced waterproofing solutions to protect your structures from water damage. High-quality materials for long-lasting protection.",
       image: redSandstone,
-      features: ["Vibrant color", "Durable", "Unique patterns", "Heat resistant"],
-      sizes: ["Custom sizes available"],
-      applications: ["Facades", "Feature Walls", "Monuments", "Temples"],
-      price: "Starting ₹55/sq.ft",
+      features: ["Advanced technology", "Long-lasting", "Easy application", "Reliable protection"],
+      sizes: ["Various packaging"],
+      applications: ["Roofs", "Bathrooms", "Basements", "Terrace"],
+      price: "Contact for pricing",
     },
     {
-      name: "Sandstone Slabs",
+      name: "Construction Support Products",
       description:
-        "Large format sandstone slabs for countertops, monuments, and architectural features. Custom sizing available on request.",
+        "Complete range of construction support products including laying gum bags, washing liquids, waterproofing liquids, wash basin sinks, and modern cabinets.",
       image: sandstoneSlabs,
-      features: ["Custom sizes", "Polished finish", "Premium grade", "Heavy duty"],
-      sizes: ["Up to 8x4 ft", "Custom dimensions"],
-      applications: ["Countertops", "Monuments", "Steps", "Platforms"],
-      price: "Starting ₹75/sq.ft",
+      features: ["Complete range", "Quality assured", "Expert support", "Competitive pricing"],
+      sizes: ["Various options"],
+      applications: ["Construction", "Renovation", "Maintenance", "New Projects"],
+      price: "Contact for pricing",
     },
   ];
 
   return (
-    <section id="products" className="py-24 lg:py-32 bg-background overflow-hidden" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background overflow-hidden" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,16 +64,16 @@ const Products = () => {
             Our Products
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
-            Premium <span className="text-gradient">Natural Stone</span> Collection
+            Our <span className="text-gradient">Product Range</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Discover our extensive range of high-quality sandstone products, 
-            carefully sourced to meet the highest standards of durability and aesthetics.
+            Discover our extensive range of high-quality tiles, sanitary ware, waterproofing solutions, 
+            and construction support products, carefully sourced to meet the highest standards of durability and performance.
           </p>
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {products.map((product, index) => (
             <motion.div
               key={product.name}
@@ -84,13 +84,15 @@ const Products = () => {
               className="group relative bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 border border-border"
             >
               {/* Image */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-48 sm:h-64 md:h-72 overflow-hidden">
                 <motion.img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6 }}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
@@ -105,17 +107,17 @@ const Products = () => {
                 </motion.button>
 
                 {/* Price Tag */}
-                <div className="absolute top-4 right-4 glass rounded-full px-4 py-1.5 text-sm font-semibold text-foreground">
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 glass rounded-full px-2 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold text-foreground">
                   {product.price}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="font-serif text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <div className="p-4 sm:p-6">
+                <h3 className="font-serif text-xl sm:text-2xl font-semibold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-5 leading-relaxed line-clamp-2">
+                <p className="text-muted-foreground text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed line-clamp-2">
                   {product.description}
                 </p>
 
@@ -163,7 +165,7 @@ const Products = () => {
                 Looking for something specific?
               </p>
               <p className="text-muted-foreground text-sm">
-                We have 50+ varieties of natural stone products.
+                We offer complete tiles & sanitary solutions with expert guidance.
               </p>
             </div>
             <Button className="shadow-glow" asChild>

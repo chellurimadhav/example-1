@@ -20,6 +20,7 @@ const Header = () => {
     { name: "About", href: "#about" },
     { name: "Products", href: "#products" },
     { name: "Gallery", href: "#gallery" },
+    { name: "Partners", href: "#partners" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "Contact", href: "#contact" },
   ];
@@ -30,9 +31,9 @@ const Header = () => {
       <div className="hidden md:block bg-charcoal text-sandstone-light py-2">
         <div className="container mx-auto px-4 flex items-center justify-between text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+919246774777" className="flex items-center gap-2 hover:text-gold transition-colors">
+            <a href="tel:+919642443344" className="flex items-center gap-2 hover:text-gold transition-colors">
               <Phone className="h-3.5 w-3.5" />
-              +91 92467 74777
+              +91 96424 43344
             </a>
             <span className="flex items-center gap-2">
               <MapPin className="h-3.5 w-3.5" />
@@ -58,12 +59,12 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-2 group">
+            <a href="#home" className="flex items-center gap-1 sm:gap-2 group">
               <div className="relative">
-                <span className="text-2xl md:text-3xl font-serif font-bold text-primary group-hover:text-gradient transition-all duration-300">
+                <span className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-primary group-hover:text-gradient transition-all duration-300">
                   E.G.
                 </span>
-                <span className="text-2xl md:text-3xl font-serif font-bold text-foreground group-hover:text-primary transition-all duration-300">
+                <span className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-foreground group-hover:text-primary transition-all duration-300">
                   {" "}Associates
                 </span>
               </div>
@@ -129,9 +130,9 @@ const Header = () => {
                   transition={{ delay: 0.3 }}
                   className="mt-4 pt-4 border-t border-border"
                 >
-                  <a href="tel:+919246774777" className="flex items-center gap-3 text-muted-foreground py-2 px-4">
+                  <a href="tel:+919642443344" className="flex items-center gap-3 text-muted-foreground py-2 px-4">
                     <Phone className="h-5 w-5 text-primary" />
-                    +91 92467 74777
+                    +91 96424 43344
                   </a>
                   <Button className="w-full mt-4" asChild>
                     <a href="#contact">Get Free Quote</a>

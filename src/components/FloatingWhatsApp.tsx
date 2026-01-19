@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 const FloatingWhatsApp = () => {
   return (
     <motion.a
-      href="https://wa.me/919246774777?text=Hi! I'm interested in your sandstone products."
+      href="https://wa.me/919642443344?text=Hi! I'm interested in your tiles and sanitary products."
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
@@ -12,7 +12,7 @@ const FloatingWhatsApp = () => {
       transition={{ delay: 2, type: "spring", stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all group"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all group"
       aria-label="Chat on WhatsApp"
     >
       <motion.div
@@ -21,7 +21,7 @@ const FloatingWhatsApp = () => {
         className="absolute inset-0 bg-green-500 rounded-full opacity-50"
       />
       <svg 
-        className="h-7 w-7 relative z-10" 
+        className="h-6 w-6 sm:h-7 sm:w-7 relative z-10" 
         fill="currentColor" 
         viewBox="0 0 24 24"
       >
@@ -29,7 +29,7 @@ const FloatingWhatsApp = () => {
       </svg>
       
       {/* Tooltip */}
-      <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-charcoal text-cream text-sm px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+      <span className="hidden sm:block absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-charcoal text-cream text-sm px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
         Chat with us!
       </span>
     </motion.a>

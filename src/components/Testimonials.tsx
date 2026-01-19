@@ -10,36 +10,36 @@ const Testimonials = () => {
     {
       name: "Rajesh Kumar",
       role: "Builder & Contractor",
-      content: "Excellent quality sandstone at competitive prices. E.G. Associates has been our trusted supplier for all major projects. Their delivery is always on time.",
+      content: "Excellent quality tiles and sanitary products at competitive prices. E.G. Associates has been our trusted supplier for all major projects. Their delivery is always on time.",
       rating: 5,
       project: "Residential Complex, Vijayawada",
     },
     {
       name: "Priya Sharma",
       role: "Interior Designer",
-      content: "The variety of natural stone options they offer is impressive. Their team provided great guidance in selecting the right stone for my client's villa project.",
+      content: "The variety of tiles and sanitary options they offer is impressive. Their team provided great guidance in selecting the right products for my client's project.",
       rating: 5,
-      project: "Luxury Villa, Hyderabad",
+      project: "Commercial Project, Hyderabad",
     },
     {
       name: "Mohammed Ismail",
-      role: "Architect",
-      content: "Professional service and premium quality products. The red sandstone we sourced for the temple project was absolutely stunning. Highly recommended!",
+      role: "Project Manager",
+      content: "Professional service and premium quality products. The waterproofing solutions we used for the railway platform project were excellent. Highly recommended!",
       rating: 5,
-      project: "Temple Construction, Guntur",
+      project: "Railway Platform Project, Ongole-Gudivada",
     },
     {
       name: "Venkat Rao",
       role: "Homeowner",
-      content: "Transformed my home's exterior with their sandstone cladding. The quality exceeded my expectations and the price was very reasonable.",
+      content: "Transformed my home with their tiles and sanitary products. The quality exceeded my expectations and the price was very reasonable.",
       rating: 4,
       project: "Home Renovation, Vijayawada",
     },
   ];
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32 bg-background overflow-hidden" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background overflow-hidden" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -67,12 +67,12 @@ const Testimonials = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="relative glass rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 border border-border/50"
+              className="relative glass rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 shadow-soft hover:shadow-elevated transition-all duration-300 border border-border/50"
             >
               {/* Quote Icon */}
-              <div className="absolute -top-4 left-8">
-                <div className="bg-gradient-to-br from-primary to-accent rounded-full p-3 shadow-glow">
-                  <Quote className="h-5 w-5 text-primary-foreground" />
+              <div className="absolute -top-3 sm:-top-4 left-4 sm:left-8">
+                <div className="bg-gradient-to-br from-primary to-accent rounded-full p-2 sm:p-3 shadow-glow">
+                  <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
                 </div>
               </div>
 
@@ -91,7 +91,7 @@ const Testimonials = () => {
               </div>
 
               {/* Content */}
-              <p className="text-foreground leading-relaxed mb-6 text-lg">
+              <p className="text-foreground leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base md:text-lg pt-2">
                 "{testimonial.content}"
               </p>
 
@@ -125,15 +125,13 @@ const Testimonials = () => {
                 <Star key={i} className="h-5 w-5 text-gold fill-gold" />
               ))}
             </div>
-            <span className="text-foreground font-medium">4.5 Average Rating</span>
+            <span className="text-foreground font-medium">Trusted Since 2019</span>
             <span className="h-4 w-px bg-border" />
             <a
-              href="https://google.com/maps"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="text-primary font-medium hover:underline"
             >
-              View All Reviews →
+              Get Free Quote →
             </a>
           </div>
         </motion.div>

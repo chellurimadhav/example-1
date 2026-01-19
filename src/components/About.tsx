@@ -10,33 +10,33 @@ const About = () => {
     {
       icon: Gem,
       title: "Premium Quality",
-      description: "Only the finest natural sandstone sourced from trusted quarries across India",
+      description: "High-quality tiles, sanitary ware, and construction materials sourced from trusted manufacturers",
     },
     {
       icon: Truck,
-      title: "Pan-India Delivery",
-      description: "Reliable logistics network ensuring timely delivery anywhere in India",
+      title: "Reliable Delivery",
+      description: "Timely delivery ensuring your projects stay on schedule",
     },
     {
       icon: Award,
       title: "Expert Guidance",
-      description: "Professional consultation to help you choose the perfect stone for your project",
+      description: "Professional consultation to help you choose the perfect products for your project",
     },
   ];
 
   const highlights = [
-    "Wide range of sandstone varieties",
-    "Competitive wholesale pricing",
+    "Wide range of tiles & sanitary products",
+    "Competitive pricing",
     "Quality assured products",
-    "Custom sizing available",
+    "Waterproofing solutions",
     "Expert consultation included",
     "After-sales support",
   ];
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-warm-gradient overflow-hidden" ref={ref}>
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section id="about" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-warm-gradient overflow-hidden" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-24 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -56,33 +56,33 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-5xl font-serif font-bold text-foreground leading-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-foreground leading-tight mb-4 sm:mb-6"
             >
               Your Trusted Partner in{" "}
-              <span className="text-gradient">Natural Stone</span> Since 2019
+              <span className="text-gradient">Tiles & Sanitary</span> Since 2019
             </motion.h2>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-muted-foreground text-lg mb-6 leading-relaxed"
+              className="text-muted-foreground text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed"
             >
-              E.G. Associates is a leading trader and wholesaler of premium natural stone 
-              products based in Vijayawada, Andhra Pradesh. With over 6 years of experience, 
-              we have built a reputation for supplying the highest quality sandstone tiles, 
-              red sandstone, and sandstone slabs.
+              Established in 2019, E.G. Associates has grown into a reliable name in the tiles 
+              and sanitary industry. With years of hands-on experience, we have successfully 
+              supported a wide range of residential, commercial, and government infrastructure projects.
             </motion.p>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-muted-foreground mb-8 leading-relaxed"
+              className="text-muted-foreground text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed"
             >
-              Our commitment to quality, competitive pricing, and exceptional customer service 
-              has made us the preferred choice for builders, architects, and homeowners across 
-              Andhra Pradesh and beyond.
+              Our expertise is backed by our involvement in several large-scale works, including 
+              the Ongole to Gudivada Railway Platform Parking Tiles Project, completed between 
+              2020 and 2021. This project stands as a testament to our commitment to quality 
+              materials, timely execution, and professional service.
             </motion.p>
 
             {/* Checkmarks Grid */}
@@ -121,21 +121,21 @@ const About = () => {
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group glass rounded-2xl p-6 shadow-soft hover:shadow-elevated transition-all duration-300 border border-border/50"
+                className="group glass rounded-xl md:rounded-2xl p-4 sm:p-6 shadow-soft hover:shadow-elevated transition-all duration-300 border border-border/50"
               >
-                <div className="flex items-start gap-5">
+                <div className="flex items-start gap-3 sm:gap-4 md:gap-5">
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 0.5 }}
-                    className="h-14 w-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-glow"
+                    className="h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-glow"
                   >
-                    <feature.icon className="h-7 w-7 text-primary-foreground" />
+                    <feature.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" />
                   </motion.div>
-                  <div>
-                    <h3 className="font-serif font-semibold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-serif font-semibold text-lg sm:text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -148,17 +148,17 @@ const About = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.85 }}
-              className="bg-gradient-to-br from-primary to-accent rounded-2xl p-6 text-primary-foreground"
+              className="bg-gradient-to-br from-primary to-accent rounded-xl md:rounded-2xl p-4 sm:p-6 text-primary-foreground"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-4">
                 <div>
-                  <div className="text-4xl font-bold mb-1">19+</div>
-                  <div className="text-primary-foreground/80">Google Reviews</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">500+</div>
+                  <div className="text-primary-foreground/80 text-xs sm:text-sm">Projects Completed</div>
                 </div>
-                <div className="h-px flex-1 mx-6 bg-primary-foreground/20" />
+                <div className="h-px flex-1 mx-3 sm:mx-6 bg-primary-foreground/20" />
                 <div className="text-right">
-                  <div className="text-4xl font-bold mb-1">4.5★</div>
-                  <div className="text-primary-foreground/80">Average Rating</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">6+</div>
+                  <div className="text-primary-foreground/80 text-xs sm:text-sm">Years Experience</div>
                 </div>
               </div>
             </motion.div>
