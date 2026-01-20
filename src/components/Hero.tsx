@@ -1,8 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Star, Play, Sparkles, CheckCircle, Award, Truck, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
-import heroImage from "@/assets/hero-sandstone.jpg";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,6 +12,45 @@ const Hero = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  // Rotate hero background images (one image visible at a time)
+  const heroBgImages = useMemo(
+    () => [
+      // Tiles (1920x1080)
+      "https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1581881067989-7e3eaf45f4f6?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      // Sanitary (1920x1080)
+      "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1631889993954-4b1c9b791b1a?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&fm=jpg&w=1920&h=1080&q=95&dpr=2",
+    ],
+    []
+  );
+
+  const [bgIndex, setBgIndex] = useState(0);
+  const [broken, setBroken] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setBgIndex((prev) => {
+        const len = heroBgImages.length || 1;
+        // find next non-broken image
+        for (let step = 1; step <= len; step++) {
+          const next = (prev + step) % len;
+          if (!broken[next]) return next;
+        }
+        return prev;
+      });
+    }, 4500);
+    return () => window.clearInterval(id);
+  }, [heroBgImages.length, broken]);
 
   const stats = [
     { value: "6+", label: "Years Experience", delay: 0, icon: Award },
@@ -32,21 +70,31 @@ const Hero = () => {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28 px-4 pb-8 sm:pb-12 md:pb-16"
     >
-      {/* Parallax Background */}
+      {/* Parallax Background - Product Images Only - Big & Clear */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Premium Tiles & Sanitary Solutions"
-          className="w-full h-full object-cover scale-110"
+        {/* One-image-at-a-time background slideshow */}
+        <motion.img
+          key={bgIndex}
+          src={heroBgImages[bgIndex]}
+          alt="Tiles & Sanitary Products"
+          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110 saturate-110"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           loading="eager"
           fetchPriority="high"
+          decoding="async"
+          onError={() => setBroken((p) => ({ ...p, [bgIndex]: true }))}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-charcoal/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/32 via-charcoal/20 to-charcoal/32" />
         <div className="absolute inset-0 bg-hero-gradient" />
       </motion.div>
 
+      {/* NOTE: previous multi-image strip scroller removed; now we show 1 image at a time */}
+
       {/* Floating Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -56,11 +104,6 @@ const Hero = () => {
           animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="absolute bottom-1/4 left-[10%] w-48 h-48 rounded-full bg-gold/10 blur-3xl"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-[20%] w-24 h-24 rounded-full bg-terracotta/5 blur-2xl"
         />
       </div>
 

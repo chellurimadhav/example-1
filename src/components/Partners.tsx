@@ -1,20 +1,32 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Building2, Award } from "lucide-react";
+import moonwaveLogo from "@/assets/moonwave.jpg";
+import rakLogo from "@/assets/rak.png";
+import ceraLogo from "@/assets/cera.jpg";
+import seronLogo from "@/assets/seron.jpg";
 
 const Partners = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const sanitaryPartners = [
-    { name: "Moonwave", logo: "Moonwave" },
-    { name: "RAK", logo: "RAK" },
-    { name: "Cera", logo: "Cera" },
-    { name: "Seron", logo: "Seron" },
+    { name: "Moonwave", logo: moonwaveLogo },
+    { name: "RAK Ceramics", logo: rakLogo },
+    { name: "CERA", logo: ceraLogo },
+    { name: "Seron", logo: seronLogo },
   ];
 
   const tilesPartners = [
-    { name: "Leading Brands", logo: "Premium Tiles" },
+    { name: "Simola Tiles LLP" },
+    { name: "Italica Granito Pvt Ltd" },
+    { name: "Pavit Ceramics Pvt Ltd" },
+    { name: "Jalaram Ceramics Limited" },
+    { name: "Anjani Vishnu Allied Services Limited" },
+    { name: "Icon Granito Pvt. Ltd" },
+    { name: "Rome Tiles" },
+    { name: "Saradhi Agencies" },
+    { name: "Socute Tiles LLP" },
   ];
 
   return (
@@ -63,8 +75,17 @@ const Partners = () => {
                 whileHover={{ y: -5, scale: 1.05 }}
                 className="glass rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 text-center border border-border hover:border-primary/30 hover:shadow-elevated transition-all duration-300"
               >
-                <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <Award className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary" />
+                <div className="h-16 w-24 sm:h-20 sm:w-28 md:h-24 md:w-32 mx-auto mb-3 sm:mb-4 rounded-xl bg-background flex items-center justify-center overflow-hidden border border-border/60">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
                 </div>
                 <h4 className="font-serif font-semibold text-sm sm:text-base md:text-lg text-foreground">
                   {partner.name}
@@ -104,7 +125,6 @@ const Partners = () => {
                 <h4 className="font-serif font-semibold text-lg text-foreground">
                   {partner.name}
                 </h4>
-                <p className="text-sm text-muted-foreground mt-2">To be updated</p>
               </motion.div>
             ))}
           </div>

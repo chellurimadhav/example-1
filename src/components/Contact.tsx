@@ -70,7 +70,7 @@ _This enquiry was submitted through the website contact form._`;
     // Reset form after a short delay
     setTimeout(() => {
       setFormData({ name: "", phone: "", email: "", propertyType: "", location: "", message: "" });
-      setIsSubmitting(false);
+    setIsSubmitting(false);
     }, 1000);
   };
 
@@ -84,6 +84,7 @@ _This enquiry was submitted through the website contact form._`;
         "Vijayawada - 520004",
         "Andhra Pradesh, India",
       ],
+      link: "https://maps.app.goo.gl/Qc8oZNxX9zPMLeHH7",
     },
     {
       icon: Phone,
@@ -156,16 +157,16 @@ _This enquiry was submitted through the website contact form._`;
                       className="h-12 rounded-xl"
                     />
                   </div>
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-medium text-foreground">
-                    Phone Number *
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium text-foreground">
+                      Phone Number *
+                    </label>
+                    <Input
+                      id="phone"
+                      type="tel"
                     placeholder="+91 96424 43344"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
                     className="h-12 rounded-xl"
                   />
@@ -293,14 +294,19 @@ _This enquiry was submitted through the website contact form._`;
                   {info.link ? (
                     <div>
                       {info.details.map((detail, i) => (
-                        <a
-                          key={i}
-                          href={i === 0 ? info.link : `tel:${detail.replace(/\s+/g, '')}`}
-                          className="text-lg font-bold text-primary hover:underline block mb-1"
-                        >
+                        <p key={i} className="text-muted-foreground">
                           {detail}
-                        </a>
+                        </p>
                       ))}
+                      <a
+                        href={info.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 mt-2 text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
+                      >
+                        <MapPin className="h-4 w-4" />
+                        View on Google Maps
+                      </a>
                     </div>
                   ) : (
                     info.details.map((detail, i) => (
@@ -340,7 +346,7 @@ _This enquiry was submitted through the website contact form._`;
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="rounded-xl md:rounded-2xl overflow-hidden border border-border h-40 sm:h-48 shadow-soft"
+              className="relative rounded-xl md:rounded-2xl overflow-hidden border border-border h-40 sm:h-48 shadow-soft group"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.1!2d80.6!3d16.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDMwJzAwLjAiTiA4MMKwMzYnMDAuMCJF!5e0!3m2!1sen!2sin!4v1"
@@ -353,6 +359,18 @@ _This enquiry was submitted through the website contact form._`;
                 title="E.G. Associates Location"
                 aria-label="E.G. Associates location map"
               />
+              <a
+                href="https://maps.app.goo.gl/Qc8oZNxX9zPMLeHH7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/5 transition-colors"
+                aria-label="Open location in Google Maps"
+              >
+                <span className="opacity-0 group-hover:opacity-100 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-semibold text-foreground shadow-lg transition-opacity flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  View on Google Maps
+                </span>
+              </a>
             </motion.div>
           </motion.div>
         </div>

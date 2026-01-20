@@ -89,22 +89,22 @@ const WhyChooseUs = () => {
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-                whileHover={{ y: -10, scale: 1.05 }}
+              whileHover={{ y: -10, scale: 1.05 }}
                 className="group text-center p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-elevated transition-all duration-300"
-              >
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+            >
+              <motion.div
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
                   className={`inline-flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${reason.color} mb-3 sm:mb-4 md:mb-5 shadow-lg group-hover:shadow-xl transition-shadow`}
-                >
+              >
                   <reason.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
-                </motion.div>
+              </motion.div>
                 <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors">
-                  {reason.title}
-                </h3>
+                {reason.title}
+              </h3>
                 <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
-                  {reason.description}
-                </p>
+                {reason.description}
+              </p>
             </motion.div>
           ))}
         </div>
